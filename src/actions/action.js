@@ -4,8 +4,7 @@ import Redux from 'redux';
 export function makeMove (square, index) {
   return {
     type: MAKE_MOVE,
-    square,
-    index
+    square
   }
 }
 
