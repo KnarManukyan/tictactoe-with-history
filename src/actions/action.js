@@ -1,10 +1,11 @@
-import {HANDLE_CLICK, GO_BACK} from './type.js';
+import {MAKE_MOVE, GO_BACK} from './type.js';
 import Redux from 'redux';
 
-export function handleClick (square) {
+export function makeMove (square, index) {
   return {
-    type: HANDLE_CLICK,
-    square
+    type: MAKE_MOVE,
+    square,
+    index
   }
 }
 

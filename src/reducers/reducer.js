@@ -1,4 +1,4 @@
-import {HANDLE_CLICK, GO_BACK} from '../actions/type.js';
+import {MAKE_MOVE, GO_BACK} from '../actions/type.js';
 const initialState = {
     history: [[ null, null, null,
                 null, null, null,
@@ -10,8 +10,24 @@ const initialState = {
 
 export default function(state = initialState, action){
     switch (action.type) {
-      case HANDLE_CLICK: {
+      case MAKE_MOVE: {
               state.history.push(action.square);
+              const winner = {winner: findWinner(action.square)};
+              if(winner.winner) {
+              (async () => {
+                 await fetch(`http://localhost:3000/`,{
+                     method: 'POST',
+                     mode: "cors",
+                     cache: "no-cache",
+                     body: JSON.stringify(winner),
+                     headers:{
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json'
+                         //"Content-Type": "application/x-www-form-urlencoded"
+                     },
+                 }).catch(error => console.log(error));
+              })();
+              }
               return ({
                 history: state.history,
                 xIsNext: !state.xIsNext,
@@ -31,8 +47,6 @@ export default function(state = initialState, action){
           return state;
     }
   }
-
-
 
   const findWinner = function (square) {
     const winningPositions = [

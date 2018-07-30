@@ -1,2 +1,2 @@
-export const HANDLE_CLICK = 'HANDLE_CLICK';
+export const MAKE_MOVE = 'HANDLE_CLICK';
 export const GO_BACK = 'GO_BACK';
