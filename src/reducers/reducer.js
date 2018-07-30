@@ -23,7 +23,6 @@ export default function(state = initialState, action){
                      headers:{
                           'Accept': 'application/json',
                           'Content-Type': 'application/json'
-                         //"Content-Type": "application/x-www-form-urlencoded"
                      },
                  }).catch(error => console.log(error));
               })();
