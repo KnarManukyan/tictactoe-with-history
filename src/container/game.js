@@ -4,7 +4,7 @@ import '../index.css';
 import store from '../store.js';
 import {connect} from 'react-redux';
 import Board from '../component/board.js';
-import WinnerList from '../component/listOfWinners.js';
+import listOfWinners from '../component/listOfWinners.js';
 import {makeMove, goBack} from '../actions/action.js';
 class Game extends React.Component {
   constructor() {
@@ -65,7 +65,7 @@ class Game extends React.Component {
             {stepButton}
             </ol>
             <div>
-              <WinnerList winners={this.state.winners}/>
+              <listOfWinners winners={this.state.winners}/>
             </div>
         </div>
       </div>
